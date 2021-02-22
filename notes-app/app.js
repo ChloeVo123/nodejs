@@ -1,12 +1,29 @@
 //const validator = require('validator')
-
-const chalk = require('chalk')
-
 const getNotes = require('./notes.js')
-const msg = getNotes()
+const chalk = require('chalk')
+const yargs = require('yargs')
 
-console.log(msg)
+// Customize yargs version
+yargs.version('1.1.0')
 
-//console.log(validator.isEmail('andnew@example.com'))
+//create add command
+yargs.command({
+    command: 'add',
+    describe: 'Add a new note',
+    handler: () => {
+        console.log('Add new note')
+    }
+})
 
-console.log(chalk.blue.bold.italic('hello chalk'))
+yargs.command({
+    command: 'remove',
+    describe: 'remove a new note',
+    handler: () => {
+        console.log('remove a note')
+    }
+})
+
+//add, remove, read, list 
+
+
+console.log(yargs.argv)
